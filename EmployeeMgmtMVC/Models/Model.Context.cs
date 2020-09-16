@@ -13,10 +13,10 @@ namespace EmployeeMgmtMVC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBModel : DbContext
+    public partial class Ka14empdbEntities : DbContext
     {
-        public DBModel()
-            : base("name=DBModel")
+        public Ka14empdbEntities()
+            : base("name=Ka14empdbEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace EmployeeMgmtMVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<employpersonal> employpersonals { get; set; }
     }
 }

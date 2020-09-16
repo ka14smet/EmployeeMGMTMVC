@@ -19,9 +19,9 @@ namespace EmployeeMgmtMVC.Controllers
 
         public ActionResult GetData()
         {
-            using (DBModel db = new DBModel())
+            using (Ka14empdbEntities db = new Ka14empdbEntities())
             {
-                List<Employee> empList = db.Employees.ToList<Employee>();
+                List<employpersonal> empList = db.employpersonals.ToList<employpersonal>();
                 return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         } 
@@ -31,26 +31,26 @@ namespace EmployeeMgmtMVC.Controllers
         {
             if (id == 0)
             {
-                return View(new Employee());
+                return View(new employpersonal());
             }
 
             else
             {
-                using(DBModel db = new DBModel())
+                using(Ka14empdbEntities db = new Ka14empdbEntities())
                 {
-                    return View(db.Employees.Where(x => x.EmployeeID == id).FirstOrDefault<Employee>());
+                    return View(db.employpersonals.Where(x => x.id == id).FirstOrDefault<employpersonal>());
                 }
             }
         }
 
         [HttpPost]
-        public ActionResult AddorEdit(Employee emp)
+        public ActionResult AddorEdit(employpersonal emp)
         {
-            using(DBModel db = new DBModel())
+            using(Ka14empdbEntities db = new Ka14empdbEntities())
             {
-                if(emp.EmployeeID == 0)
+                if(emp.id == 0)
                 {
-                    db.Employees.Add(emp);
+                    db.employpersonals.Add(emp);
                     db.SaveChanges();
                     return Json( new { success = true, message = "Employee Added successfully"}, JsonRequestBehavior.AllowGet);
                 }
@@ -67,10 +67,10 @@ namespace EmployeeMgmtMVC.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            using(DBModel db= new DBModel())
+            using(Ka14empdbEntities db = new Ka14empdbEntities())
             {
-                Employee emp = db.Employees.Where(x => x.EmployeeID == id).FirstOrDefault<Employee>();
-                db.Employees.Remove(emp);
+                employpersonal emp = db.employpersonals.Where(x => x.id == id).FirstOrDefault<employpersonal>();
+                db.employpersonals.Remove(emp);
                 db.SaveChanges();
                 return Json(new { success = true, message = "Deleted Succesfully " }, JsonRequestBehavior.AllowGet);
 

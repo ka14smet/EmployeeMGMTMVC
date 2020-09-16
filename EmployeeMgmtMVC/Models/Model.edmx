@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Ka14empdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="employpersonal">
+          <Key>
+            <PropertyRef Name="employid" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employid" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="employfullname" Type="varchar" MaxLength="50" />
+          <Property Name="employdob" Type="varchar" MaxLength="50" />
+          <Property Name="employgender" Type="varchar" MaxLength="50" />
+          <Property Name="employbloodgrp" Type="varchar" MaxLength="50" />
+          <Property Name="employmobno1" Type="varchar" MaxLength="10" />
+          <Property Name="employmobno2" Type="varchar" MaxLength="10" />
+          <Property Name="employmailid" Type="varchar" MaxLength="50" />
+          <Property Name="employaddress" Type="varchar" MaxLength="100" />
+          <Property Name="employqualification" Type="varchar" MaxLength="50" />
+          <Property Name="employdesignation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Ka14empdbModelStoreContainer">
+          <EntitySet Name="employpersonal" EntityType="Self.employpersonal" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Ka14empdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employpersonal">
+          <Key>
+            <PropertyRef Name="employid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employid" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="employfullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employdob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employgender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employbloodgrp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employmobno1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="employmobno2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="employmailid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="employqualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employdesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Ka14empdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employpersonals" EntityType="Self.employpersonal" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Ka14empdbModelStoreContainer" CdmEntityContainer="Ka14empdbEntities">
+          <EntitySetMapping Name="employpersonals">
+            <EntityTypeMapping TypeName="Ka14empdbModel.employpersonal">
+              <MappingFragment StoreEntitySet="employpersonal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="employid" ColumnName="employid" />
+                <ScalarProperty Name="employfullname" ColumnName="employfullname" />
+                <ScalarProperty Name="employdob" ColumnName="employdob" />
+                <ScalarProperty Name="employgender" ColumnName="employgender" />
+                <ScalarProperty Name="employbloodgrp" ColumnName="employbloodgrp" />
+                <ScalarProperty Name="employmobno1" ColumnName="employmobno1" />
+                <ScalarProperty Name="employmobno2" ColumnName="employmobno2" />
+                <ScalarProperty Name="employmailid" ColumnName="employmailid" />
+                <ScalarProperty Name="employaddress" ColumnName="employaddress" />
+                <ScalarProperty Name="employqualification" ColumnName="employqualification" />
+                <ScalarProperty Name="employdesignation" ColumnName="employdesignation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
